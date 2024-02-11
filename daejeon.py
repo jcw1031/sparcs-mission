@@ -1,6 +1,7 @@
+import folium
 import pandas as pd
 import streamlit as st
-import streamlit_folium as sf
+from streamlit_folium import folium_static as fs
 import folium as fl
 import numpy as np
 import plotly.express as px
@@ -15,6 +16,13 @@ filter_option = st.selectbox('필터링 기준:', ['학생수', '학원수', '�
 fig = px.bar(df, x='지역', y=filter_option, color='지역', labels={'value': filter_option}, title=f'지역별 {filter_option}')
 
 st.plotly_chart(fig)
+
+geojson_path = '대전광역시.geojson'
+
+m = folium.Map(location=[36.3504, 127.3845], zoom_start=10)
+folium.GeoJson(geojson_path).add_to(m)
+
+fs(m)
 
 # st.plotly_chart(fig)
 
