@@ -11,7 +11,7 @@ st.title('대전은 노잼 도시가 아니다!')
 data_path = '학생수.csv'
 df = pd.read_csv(data_path)
 
-filter_option = st.selectbox('필터링 기준:', ['학생수', '학원수', '유학수'])
+filter_option = st.selectbox('필터링 기준:', ['학원수', '학생수', '유학수'])
 show_ratio = st.checkbox('전체 비중으로 보기', value=True)
 
 if show_ratio:
